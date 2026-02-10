@@ -36,6 +36,9 @@ The application fetches country data from an external API and presents it in a c
 - Run the Project
    npm run dev 
    and open the localhost on your browser
+
+
 ## ScreenShots
 ![HomePage](./Screenshot3.png)
+
 ![SearchResult](./Screenshot2.png)
