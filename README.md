@@ -1,16 +1,41 @@
-# React + Vite
+# 🌍 CountryBook - Assignment3 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Description
+Country Book is a React-based project that displays information about countries around the world.
+The application fetches country data from an external API and presents it in a clean, organized format.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- Display list of countries
+- Show country details such as name, region, population, capital and languages
+- Debounced Search capability by name
+- Loading and Error Handeling
+- Filter by region
+- Clean and responsive UI
+- Proper use of unique keys in list rendering
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 🛠 Technologies
+- React
+- Vite
+- JavaScript
+- CSS / Tailwind CSS
+- REST API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 🔗 API endpoints used
+- "https://restcountries.com/v3.1/all?fields=name,capital,region,languages,flags,population"
+
+
+## ▶️ How to Run the Project
+- Navigate to the Folder 
+   cd countries-explorer
+- Install dependencies
+   npm install (i)
+- Run the Project
+   npm run dev 
+   and open the localhost on your browser
+## ScreenShots
+![HomePage](./Screenshot3.png)
+![SearchResult](./Screenshot2.png)
