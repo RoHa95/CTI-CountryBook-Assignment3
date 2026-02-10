@@ -16,7 +16,9 @@ function Content({ data, loading, notfound }) {
         ) : (
           <div className="border pt-6 md:px-8 mt-6 border-rose-500 rounded-2xl md:grid auto-rows-fr md:grid-cols-3 md:gap-x-6">
             {data.map((item) => (
-              <Card data={item}>{item.name.common}</Card>
+              <Card key={item.id} data={item}>
+                {item.name.common}
+              </Card>
             ))}
           </div>
         )}

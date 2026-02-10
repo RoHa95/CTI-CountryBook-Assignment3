@@ -26,8 +26,12 @@ function App() {
           throw new Error("request failed");
         }
         const data = await res.json();
-        setCountries(data);
-        setFilteredCountries(data);
+        const dataWithId = data.map((item) => ({
+          ...item,
+          id: crypto.randomUUID(),
+        }));
+        setCountries(dataWithId);
+        setFilteredCountries(dataWithId);
         setLoading(false);
         setError(false);
       } catch (error) {
