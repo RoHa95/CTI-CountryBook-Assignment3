@@ -1,7 +1,6 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-function Navbar({ region, setRegion,search, setSearch }) {
-  
+function Navbar({ region, setRegion, search, setSearch }) {
   return (
     <div className="bg-rose-400 w-full">
       <div className="max-w-4xl mx-auto flex gap-x-2 items-center justify-between p-2">
@@ -9,8 +8,8 @@ function Navbar({ region, setRegion,search, setSearch }) {
         <div className="flex items-center gap-x-2">
           <div className="flex items-center text-rose-100 border px-2 rounded-lg border-rose-200">
             <input
-            value={search}
-            onChange={e=>setSearch(e.target.value)}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               type="text"
               name="search"
               className=" outline-0 focus:outline-0"

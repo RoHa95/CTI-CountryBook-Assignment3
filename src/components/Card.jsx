@@ -1,14 +1,10 @@
 import React from "react";
 
 function Card({ data }) {
-
-  // const [languageA, language] = Object.entries(data.languages)[0];
 const [languageA, language] =
   Object.entries(data.languages ?? {})[0] ?? [];
 
-  // console.log(data);
-  // console.log(data.languages);
-  // Object.entries(data.languages).map(([key, value]) => console.log(value));
+  
   return (
     <div className="flex flex-col border rounded-2xl shadow-2xl mb-8 flex-1 overflow-hidden mx-4 md:mx-0 hover:bg-rose-50 cursor-pointer">
       <img

@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Content from "./components/Content";
-import { data } from "autoprefixer";
 import ErrorPage from "./components/ErrorPage";
 function App() {
   //states
   const [countries, setCountries] = useState([]);
-  const [error, setError] = useState(false);
-  const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [region, setRegion] = useState("all");
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [region, setRegion] = useState("All");
+  const [search, setSearch] = useState("");
+  const [debounced, setDebounced] = useState("");
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [notfound, setNotfound] = useState("false");
 
+  //fetch data
   useEffect(() => {
     const fetchCountries = async () => {
       try {
@@ -36,22 +37,23 @@ function App() {
     };
     fetchCountries();
   }, []);
+  //filterd data
   useEffect(() => {
     let result = [...countries];
 
-    if (region !== "all") {
+    if (region !== "All") {
       result = result.filter((item) => item.region === region);
     }
-    if (search.length > 1) {
+    if (debounced.length > 1) {
       result = result.filter((item) =>
         item.name.common
           .toLocaleLowerCase()
-          .includes(search.trim().toLocaleLowerCase()),
+          .includes(debounced.trim().toLocaleLowerCase()),
       );
     }
     setFilteredCountries(result);
-  }, [search, region]);
-
+  }, [debounced, region]);
+  //handle not found data
   useEffect(() => {
     if (filteredCountries.length === 0 && countries.length > 0) {
       setNotfound(true);
@@ -59,6 +61,14 @@ function App() {
       setNotfound(false);
     }
   }, [filteredCountries]);
+  //debounced search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebounced(search);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [search]);
+
   return (
     <div>
       <Navbar
@@ -68,7 +78,7 @@ function App() {
         setSearch={setSearch}
       />
       {error ? (
-       <ErrorPage/>
+        <ErrorPage />
       ) : (
         <Content
           data={filteredCountries}
